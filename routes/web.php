@@ -24,11 +24,12 @@ Route::middleware(['auth.token'])->group(function () {
     });
 });
 
+Route::get('/dashboard', function () {
+    return view('admin.konten.dashboard');
+});
 
 Route::get('/register', [AuthController::class, 'indexRegister'])->name('auth.register');
 Route::get('/login', [AuthController::class, 'indexLogin'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'loginProcess'])->name('auth.login.process');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
