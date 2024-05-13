@@ -136,16 +136,15 @@
                         <div class="item">
                             <div class="testimony-wrap pb-4">
                                 <div class="text">
-                                    <p class="mb-4">A small river named Duden flows by their place and supplies it
-                                        with the necessary regelialia. It is a paradisematic country, in which
-                                        roasted parts of sentences fly into your mouth.</p>
+                                    <p class="mb-4">Tempatnya bersih, nyaman dan bagus. Pemandangannya yang cantik banget, bisa bbq-an juga. 
+                                    Ada banyak spot buat duduk santai sambil ngopi atau ngobrol. Pelayanan ramah, ada mushola, ada kafe tempat ngopi juga.</p>
                                 </div>
                                 <div class="d-flex">
                                     <div class="user-img" style="background-image: url(images/person_1.jpg)">
                                     </div>
                                     <div class="pos ml-3">
-                                        <p class="name">Gerald Hodson</p>
-                                        <span class="position">Businessman</span>
+                                        <p class="name">Desty Ristiani</p>
+                                        <span class="position">Pengunjung</span>
                                     </div>
                                 </div>
                             </div>
@@ -153,16 +152,15 @@
                         <div class="item">
                             <div class="testimony-wrap pb-4">
                                 <div class="text">
-                                    <p class="mb-4">A small river named Duden flows by their place and supplies it
-                                        with the necessary regelialia. It is a paradisematic country, in which
-                                        roasted parts of sentences fly into your mouth.</p>
+                                    <p class="mb-4">Tempatnya bagus, udara sejuk, banyak pohon rindang. Rekomendasi wisata bila lagi liburan ke Banjarnegara. 
+                                        Air terjunya indah dan deras airnya, ada kolam renang juga untuk anak2. Toiletnya bersih, ada musholah, gazebo buat ngadem.</p>
                                 </div>
                                 <div class="d-flex">
                                     <div class="user-img" style="background-image: url(images/person_2.jpg)">
                                     </div>
                                     <div class="pos ml-3">
-                                        <p class="name">Gerald Hodson</p>
-                                        <span class="position">Businessman</span>
+                                        <p class="name">Ilhamar</p>
+                                        <span class="position">Pengunjung</span>
                                     </div>
                                 </div>
                             </div>
@@ -170,16 +168,15 @@
                         <div class="item">
                             <div class="testimony-wrap pb-4">
                                 <div class="text">
-                                    <p class="mb-4">A small river named Duden flows by their place and supplies it
-                                        with the necessary regelialia. It is a paradisematic country, in which
-                                        roasted parts of sentences fly into your mouth.</p>
+                                    <p class="mb-4">Ada cafenya, ada kolam renangnya. Dengan membayar 15rb sudah dapat free minuman chocholatos panas dan free masuk kolam renang. 
+                                    Akses menuju sana juga sudah bagus karena full aspal. Tempat ini keren banget untuk melepas penat.</p>
                                 </div>
                                 <div class="d-flex">
                                     <div class="user-img" style="background-image: url(images/person_3.jpg)">
                                     </div>
                                     <div class="pos ml-3">
-                                        <p class="name">Gerald Hodson</p>
-                                        <span class="position">Businessman</span>
+                                        <p class="name">Marheni Dwi</p>
+                                        <span class="position">Pengunjung</span>
                                     </div>
                                 </div>
                             </div>
@@ -187,16 +184,15 @@
                         <div class="item">
                             <div class="testimony-wrap pb-4">
                                 <div class="text">
-                                    <p class="mb-4">A small river named Duden flows by their place and supplies it
-                                        with the necessary regelialia. It is a paradisematic country, in which
-                                        roasted parts of sentences fly into your mouth.</p>
+                                    <p class="mb-4">Curug Pletuk sekarang ditata semakin indah dan Instagramable. Prasarana nya juga semakin lengkap. Tangga sudah semakin baik sehingga wisatawan 
+                                        bisa mendekati air terjun semakin dekat. Kebersihan juga terpelihara.</p>
                                 </div>
                                 <div class="d-flex">
                                     <div class="user-img" style="background-image: url(images/person_4.jpg)">
                                     </div>
                                     <div class="pos ml-3">
-                                        <p class="name">Gerald Hodson</p>
-                                        <span class="position">Businessman</span>
+                                        <p class="name">Brave Coolinner</p>
+                                        <span class="position">Pengunjung</span>
                                     </div>
                                 </div>
                             </div>
@@ -335,8 +331,7 @@
                     <div class="item">
                         <div class="resto-img rounded" style="background-image: url(images/OIPS.jpeg);"></div>
                     </div>
-                    <div class="item">
-                        <div class="resto-img rounded" style="background-image: url(images/susur.jpg);"></div>
+                    <div class="item">   
                     </div>
                 </div>
             </div>
