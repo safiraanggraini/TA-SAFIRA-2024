@@ -17,6 +17,9 @@ use App\Http\Controllers\AuthController;
 Route::get('/', function () {
     return view('landing.index');
 });
+Route::get('/booking', function () {
+    return view('booking.index');
+});
 
 Route::get('/register', [AuthController::class, 'indexRegister'])->name('auth.register');
 Route::get('/login', [AuthController::class, 'indexLogin'])->name('auth.login');

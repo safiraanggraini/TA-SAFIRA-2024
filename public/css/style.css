@@ -10698,9 +10698,8 @@ h5,
 }
 
 .ftco-navbar-light {
-    background: transparent !important;
+    background: white !important;
     position: absolute;
-    top: 20px;
     left: 0;
     right: 0;
     z-index: 3;
@@ -13141,3 +13140,4 @@ textarea.form-control {
         stroke-dashoffset: -136px;
     }
 }
+
