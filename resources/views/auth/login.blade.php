@@ -89,7 +89,12 @@
                         .getTime()); // Simpan waktu kadaluwarsa
 
                     // Redirect ke halaman tertentu setelah berhasil login
-                    window.location.href = "{{ route('admin.dashboard') }}";
+                    // window.location.href = "{{ route('admin.dashboard') }}";
+                    if (userData.role.toLowerCase() == 'admin') {
+                        window.location.href = "{{ route('admin.dashboard') }}";
+                    } else {
+                        window.location.href = "{{ route('home.index') }}";
+                    }
 
                     // Set timeout untuk memeriksa dan hapus token setelah 30 menit
                     setTimeout(function() {

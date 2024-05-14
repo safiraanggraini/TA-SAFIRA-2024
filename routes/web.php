@@ -28,6 +28,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.konten.dashboard');
     })->name('admin.dashboard');
+});
+
+Route::middleware(['customer'])->group(function () {
     Route::get('/booking', function () {
         return view('booking.index');
     });

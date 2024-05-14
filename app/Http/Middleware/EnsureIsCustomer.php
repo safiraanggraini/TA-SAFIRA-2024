@@ -2,14 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Http;
 
-class EnsureUserIsLogin
+class EnsureIsCustomer
 {
     /**
      * Handle an incoming request.
@@ -20,8 +18,10 @@ class EnsureUserIsLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        $apiUrl = env('API_URL');
-        $token = $request->header('Authorization') ?: Cookie::get('token');
+        // return $next($request);
+        $apiUrl    = env('API_URL');
+        $token     = $request->header('Authorization') ?: Cookie::get('token');
+        $user_data = Cookie::get('user_data');
 
         if (!$token) {
             return redirect()->route('auth.login');
@@ -31,6 +31,13 @@ class EnsureUserIsLogin
 
         if ($response->failed() || !$response->json('data')) {
             return redirect()->route('auth.login');
+        }
+
+        if ($user_data) {
+            $user_data = json_decode($user_data);
+            if (strtolower($user_data->role) !== 'customer') {
+                return redirect()->route('auth.login');
+            }
         }
 
         return $next($request);

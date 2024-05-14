@@ -34,21 +34,19 @@ class AuthController extends Controller
             'password' => $request->input('password'),
         ]);
 
-        // Cek keberhasilan login dari respons backend
         if ($response->successful()) {
             $data = $response->json();
 
-            // Menyimpan token di localStorage
             $token = $data['data']['token'];
             $user = $data['data']['user'];
 
             Cookie::queue('token', $token, 30 * 60 * 1000);
+            Cookie::queue('user_data', json_encode($user), 30 * 60 * 1000);
 
             return response()->json($data)
                 ->header('Authorization', 'Bearer ' . $token)
                 ->header('User-Data', json_encode($user));
         } else {
-            // Tanggapan error jika login gagal
             return response()->json(['message' => 'Login failed'], $response->status());
         }
     }
