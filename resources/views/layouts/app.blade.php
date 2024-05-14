@@ -28,13 +28,14 @@
                     <li class="nav-item"><a href="/#tentang" class="nav-link">Tentang Kami</a></li>
                     <li class="nav-item"><a href="/#paket" class="nav-link">Paket Wisata</a></li>
                     <li class="nav-item"><a href="/booking" class="nav-link">Booking</a></li>
-                    @auth
-                    <li class="nav-item"><a href="/logout" class="nav-link login btn btn-primary"
-                        style="padding: 0.75rem 15px !important; margin: 0.75rem 5px !important;">Logout</a></li>
+                    @if (Cookie::has('token'))
+                        <li class="nav-item"><a href="/logout" class="nav-link login btn btn-primary"
+                                style="padding: 0.75rem 15px !important; margin: 0.75rem 5px !important;">Logout</a>
+                        </li>
                     @else
-                    <li class="nav-item"><a href="/login" class="nav-link login btn btn-primary"
-                        style="padding: 0.75rem 15px !important; margin: 0.75rem 5px !important;">Login</a></li>
-                    @endauth                 
+                        <li class="nav-item"><a href="/login" class="nav-link login btn btn-primary"
+                                style="padding: 0.75rem 15px !important; margin: 0.75rem 5px !important;">Login</a></li>
+                    @endif
                 </ul>
             </div>
         </div>

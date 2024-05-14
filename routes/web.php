@@ -24,12 +24,20 @@ Route::middleware(['auth.token'])->group(function () {
     });
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.konten.dashboard');
+Route::middleware(['admin'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.konten.dashboard');
+    })->name('admin.dashboard');
+    Route::get('/booking', function () {
+        return view('booking.index');
+    });
 });
+
+// Route::get('/dashboard', function () {
+//     return view('admin.konten.dashboard');
+// })->name('admin.dashboard');
 
 Route::get('/register', [AuthController::class, 'indexRegister'])->name('auth.register');
 Route::get('/login', [AuthController::class, 'indexLogin'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'loginProcess'])->name('auth.login.process');
-
-
+Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');

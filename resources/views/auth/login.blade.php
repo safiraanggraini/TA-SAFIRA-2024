@@ -73,7 +73,7 @@
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
                 success: function(response) {
-                    console.log('Login berhasil', response);
+                    // console.log('Login berhasil', response);
 
                     // Menyimpan token di localStorage dengan waktu kadaluwarsa 30 menit
                     var expirationTime = new Date();
@@ -89,7 +89,7 @@
                         .getTime()); // Simpan waktu kadaluwarsa
 
                     // Redirect ke halaman tertentu setelah berhasil login
-                    window.location.href = "{{ route('home.index') }}";
+                    window.location.href = "{{ route('admin.dashboard') }}";
 
                     // Set timeout untuk memeriksa dan hapus token setelah 30 menit
                     setTimeout(function() {
@@ -113,6 +113,10 @@
 
                 // Bandingkan waktu saat ini dengan waktu kadaluwarsa
                 return new Date().getTime() > parseInt(expirationTime, 10);
+            }
+
+            function getTokenFromLocalStorage() {
+                return localStorage.getItem('token');
             }
         }
     </script>
