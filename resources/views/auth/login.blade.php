@@ -17,6 +17,27 @@
                                 <img src="{{ asset('images/logo-curug.png') }}" alt="logo" class="logo">
                             </div>
                             <p class="login-card-description">Login</p>
+
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Success!</strong> {{ session('success') }}
+                                </div>
+                            @endif
+
+                            @if (session('failed'))
+                                @if (is_array(session('failed')))
+                                    @foreach (session('failed') as $error)
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>Error!</strong> {{ $error }}
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>Error!</strong> {{ session('failed') }}
+                                    </div>
+                                @endif
+                            @endif
+
                             <form id="loginForm">
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Email</label>

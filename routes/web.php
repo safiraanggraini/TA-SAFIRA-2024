@@ -41,6 +41,7 @@ Route::middleware(['customer'])->group(function () {
 // })->name('admin.dashboard');
 
 Route::get('/register', [AuthController::class, 'indexRegister'])->name('auth.register');
+Route::post('/register', [AuthController::class, 'registerProcess'])->name('auth.register.process');
 Route::get('/login', [AuthController::class, 'indexLogin'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'loginProcess'])->name('auth.login.process');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');

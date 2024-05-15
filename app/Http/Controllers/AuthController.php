@@ -57,4 +57,25 @@ class AuthController extends Controller
 
         return redirect()->route('auth.login');
     }
+
+    public function registerProcess(Request $request)
+    {
+        $response = Http::post($this->apiUrl . '/auth/signup', [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+            "role_id" => "2"
+        ]);
+
+        if ($response->successful()) {
+            $data = $response->json();
+            return redirect()->route('auth.login')->with('success', $data['message']);
+        } else {
+            $errors = $response->json()['message'];
+
+            if ($errors)
+                return redirect()->route('auth.register')->with('failed', $errors);
+            return redirect()->route('auth.register')->with('failed', 'Terjadi kesalahan. Silahkan coba lagi.');
+        }
+    }
 }
