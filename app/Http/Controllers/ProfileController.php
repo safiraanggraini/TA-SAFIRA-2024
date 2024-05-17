@@ -42,31 +42,30 @@ class ProfileController extends Controller
     {
         $token = Cookie::get('token');
         $userData = json_decode(Cookie::get('user_data'));
-        // Cek apakah file gambar telah disertakan dalam permintaan
+    
+        $requestData = [
+            'name' => $request->input('name'),
+            'address' => $request->input('address'),
+            'phone_number' => $request->input('phone_number'),
+        ];
+    
         if ($request->hasFile('image')) {
-            $response = Http::withToken($token)->attach(
-                'image', $request->file('image'), $request->file('image')->getClientOriginalName()
-            )->put($this->apiUrl . '/users/update_profile', [
-                'name' => $request->input('name'),
-                'address' => $request->input('address'),
-                'phone_number' => $request->input('phone_number'),
-            ]);
+            $image = $request->file('image');
+            $response = Http::withToken($token)
+                            ->attach('image', file_get_contents($image), $image->getClientOriginalName())
+                            ->put($this->apiUrl . '/users/update_profile', $requestData);
         } else {
-            // Jika file gambar tidak disertakan, kirim permintaan tanpa lampiran gambar
-            $response = Http::withToken($token)->put($this->apiUrl . '/users/update_profile', [
-                'name' => $request->input('name'),
-                'address' => $request->input('address'),
-                'phone_number' => $request->input('phone_number'),
-            ]);
+            $response = Http::withToken($token)
+                            ->put($this->apiUrl . '/users/update_profile', $requestData);
         }
-
+    
         if ($response->successful()) {
             $data = $response->json();
-
+    
             $updatedUserData = array_merge((array) $userData, $data['data']);
-
+    
             Cookie::queue('user_data', json_encode($updatedUserData), 30 * 60 * 1000);
-
+    
             return redirect()->back()->with('success', $data['message']);
         } else {
             $errors = $response->json();
@@ -74,6 +73,7 @@ class ProfileController extends Controller
             return redirect()->back()->with('error', $errorMessage);
         }
     }
+    
 
     public function changePassword(Request $request, $id)
     {

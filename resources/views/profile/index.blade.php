@@ -48,9 +48,8 @@
                                         <form class="text-start text-main py-3"
                                             action="{{ route('profile.update', $userData['id'] ?? 0) }}" method="POST"
                                             enctype="multipart/form-data">
-                                            @csrf
                                             @method('PUT')
-
+                                            @csrf
                                             @if (session('success'))
                                                 <div class="alert alert-success">
                                                     {{ session('success') }}
@@ -99,7 +98,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="phone_number" class="form-label">Nomor Handphone</label>
-                                                <input type="tel" class="form-control" id="phone_number"
+                                                <input type="number" class="form-control" id="phone_number"
                                                     name="phone_number"
                                                     value="{{ old('phone_number', $userData['phone_number'] ?? '') }}"
                                                     placeholder="Masukkan nomor handphone">
