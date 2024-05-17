@@ -13,32 +13,30 @@
                     <div class="col-md-7">
                         <div class="card-body">
                             <div class="brand-wrapper">
-                                <img src="assets/images/logo.svg" alt="logo" class="logo">
+                                <img src="{{ asset('images/logo-curug.png') }}" alt="logo" class="logo">
                             </div>
                             <p class="login-card-description">Register</p>
-
-                            @if (session('success'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <strong>Success!</strong> {{ session('success') }}
-                                </div>
-                            @endif
-
-                            @if (session('failed'))
-                                @if (is_array(session('failed')))
-                                    @foreach (session('failed') as $error)
-                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                            <strong>Error!</strong> {{ $error }}
-                                        </div>
-                                    @endforeach
-                                @else
-                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                        <strong>Error!</strong> {{ session('failed') }}
-                                    </div>
-                                @endif
-                            @endif
-
                             <form action="{{ route('auth.register.process') }}" method="POST">
                                 @csrf
+                                @if (session('success'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Success!</strong> {{ session('success') }}
+                                    </div>
+                                @endif
+
+                                @if (session('failed'))
+                                    @if (is_array(session('failed')))
+                                        @foreach (session('failed') as $error)
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <strong>Error!</strong> {{ $error }}
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>Error!</strong> {{ session('failed') }}
+                                        </div>
+                                    @endif
+                                @endif
                                 <div class="form-group">
                                     <label for="name" class="sr-only">Name</label>
                                     <input type="name" name="name" id="name" class="form-control"

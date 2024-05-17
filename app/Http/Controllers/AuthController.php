@@ -33,23 +33,28 @@ class AuthController extends Controller
             'email' => $request->input('email'),
             'password' => $request->input('password'),
         ]);
-
+    
         if ($response->successful()) {
             $data = $response->json();
-
+    
             $token = $data['data']['token'];
             $user = $data['data']['user'];
-
+    
             Cookie::queue('token', $token, 30 * 60 * 1000);
             Cookie::queue('user_data', json_encode($user), 30 * 60 * 1000);
-
+    
             return response()->json($data)
                 ->header('Authorization', 'Bearer ' . $token)
                 ->header('User-Data', json_encode($user));
         } else {
-            return response()->json(['message' => 'Login failed'], $response->status());
+            // Ambil pesan error dari respons
+            $errorData = $response->json();
+            $errorMessage = isset($errorData['message']) ? $errorData['message'] : 'Login failed';
+    
+            return response()->json(['message' => $errorMessage], $response->status());
         }
     }
+    
 
     public function logout()
     {

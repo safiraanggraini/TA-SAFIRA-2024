@@ -18,27 +18,31 @@
                             </div>
                             <p class="login-card-description">Login</p>
 
-                            @if (session('success'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <strong>Success!</strong> {{ session('success') }}
-                                </div>
-                            @endif
-
-                            @if (session('failed'))
-                                @if (is_array(session('failed')))
-                                    @foreach (session('failed') as $error)
-                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                            <strong>Error!</strong> {{ $error }}
-                                        </div>
-                                    @endforeach
-                                @else
-                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                        <strong>Error!</strong> {{ session('failed') }}
+                            <form id="loginForm">
+                                @if (session('success'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Success!</strong> {{ session('success') }}
                                     </div>
                                 @endif
-                            @endif
 
-                            <form id="loginForm">
+                                @if (session('failed'))
+                                    @if (is_array(session('failed')))
+                                        @foreach (session('failed') as $error)
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <strong>Error!</strong> {{ $error }}
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>Error!</strong> {{ session('failed') }}
+                                        </div>
+                                    @endif
+                                @endif
+
+                                <div id="loginErrorAlert" class="alert alert-danger alert-dismissible fade show"
+                                    role="alert" style="display: none;">
+                                    <strong>Error!</strong> <span id="loginErrorMessage"></span>
+                                </div>
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Email</label>
                                     <input type="email" name="email" id="email" class="form-control"
@@ -83,61 +87,54 @@
 
             $.ajax({
                 type: "POST",
-
                 url: "{{ route('auth.login.process') }}",
-                // url: "https://curug-pletuk.fly.dev/auth/login",
-
                 headers: {
-                    'X-CSRF-TOKEN': csrfToken, // Add CSRF token to headers
-                    'Authorization': 'Bearer ' + localStorage.getItem('token') // Add token to headers
+                    'X-CSRF-TOKEN': csrfToken,
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
                 },
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
                 success: function(response) {
-                    // console.log('Login berhasil', response);
-
-                    // Menyimpan token di localStorage dengan waktu kadaluwarsa 30 menit
                     var expirationTime = new Date();
-                    expirationTime.setMinutes(expirationTime.getMinutes() + 30); // Tambahkan 30 menit
+                    expirationTime.setMinutes(expirationTime.getMinutes() + 30);
 
                     var token = response.data.token;
                     var userData = response.data.user;
 
-                    // Store user data in session or local storage
                     localStorage.setItem('userData', JSON.stringify(userData));
                     localStorage.setItem('token', token);
-                    localStorage.setItem('tokenExpiration', expirationTime
-                        .getTime()); // Simpan waktu kadaluwarsa
+                    localStorage.setItem('tokenExpiration', expirationTime.getTime());
 
-                    // Redirect ke halaman tertentu setelah berhasil login
-                    // window.location.href = "{{ route('admin.dashboard') }}";
                     if (userData.role.toLowerCase() == 'admin') {
                         window.location.href = "{{ route('admin.dashboard') }}";
                     } else {
                         window.location.href = "{{ route('home.index') }}";
                     }
 
-                    // Set timeout untuk memeriksa dan hapus token setelah 30 menit
                     setTimeout(function() {
                         if (isTokenExpired()) {
-                            // Token telah kadaluwarsa, hapus dari localStorage dan cookies
                             localStorage.removeItem('token');
                             localStorage.removeItem('tokenExpiration');
                         }
-                    }, 30 * 60 * 1000); // Setelah 30 menit
+                    }, 30 * 60 * 1000);
                 },
                 error: function(error) {
-                    console.log('Login gagal', error);
+                    console.log('Login failed', error);
+                    if (error.responseJSON && error.responseJSON.message) {
+                        $('#loginErrorMessage').text(error.responseJSON.message);
+                        $('#loginErrorAlert').show();
+                    } else {
+                        $('#loginErrorMessage').text('An unknown error occurred. Please try again.');
+                        $('#loginErrorAlert').show();
+                    }
                 }
             });
 
             function isTokenExpired() {
                 var expirationTime = localStorage.getItem('tokenExpiration');
                 if (!expirationTime) {
-                    return true; // Token tidak ada atau waktu kadaluwarsa tidak diset
+                    return true;
                 }
-
-                // Bandingkan waktu saat ini dengan waktu kadaluwarsa
                 return new Date().getTime() > parseInt(expirationTime, 10);
             }
 

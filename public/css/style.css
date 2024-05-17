@@ -4506,6 +4506,7 @@ input[type="button"].btn-block {
 }
 
 .navbar {
+    font-family: 'Noto Sans', sans-serif;
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;

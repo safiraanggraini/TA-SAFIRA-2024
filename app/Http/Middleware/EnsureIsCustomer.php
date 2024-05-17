@@ -18,7 +18,6 @@ class EnsureIsCustomer
      */
     public function handle(Request $request, Closure $next)
     {
-        // return $next($request);
         $apiUrl    = env('API_URL');
         $token     = $request->header('Authorization') ?: Cookie::get('token');
         $user_data = Cookie::get('user_data');
@@ -33,11 +32,10 @@ class EnsureIsCustomer
             return redirect()->route('auth.login');
         }
 
-        if ($user_data) {
-            $user_data = json_decode($user_data);
-            if (strtolower($user_data->role) !== 'customer') {
-                return redirect()->route('auth.login');
-            }
+        $userData = $response->json('data');
+
+        if (isset($userData['role']) && strtolower($userData['role']) !== 'customer') {
+            return redirect()->route('auth.login');
         }
 
         return $next($request);
