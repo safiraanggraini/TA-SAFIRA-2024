@@ -3,12 +3,7 @@
 <div class="left-side-bar">
     <div class="brand-logo">
         <a href="index.html">
-            <img src="vendors/images/deskapp-logo.svg" alt="" class="dark-logo" />
-            <img
-                src="vendors/images/deskapp-logo-white.svg"
-                alt=""
-                class="light-logo"
-            />
+            <h2 class="text-white text-center">Admin Panel</h2>
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
             <i class="ion-close-round"></i>
@@ -18,32 +13,32 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li>
-                    <a href="sitemap.html" class="dropdown-toggle no-arrow">
-                        <span class="micon bi bi-diagram-3"></span
+                    <a href="/dashboard" class="dropdown-toggle no-arrow {{ $title == 'Dashboard' ? 'active' : '' }}">
+                        <span class="micon bi bi-menu-button-wide"></span
                         ><span class="mtext">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="sitemap.html" class="dropdown-toggle no-arrow">
-                        <span class="micon bi bi-diagram-3"></span
+                    <a href="{{ route('pesanan.index') }}" class="dropdown-toggle no-arrow {{ $title == 'Pesanan' ? 'active' : '' }}">
+                        <span class="micon bi bi-journal-check"></span
                         ><span class="mtext">Pesanan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="chat.html" class="dropdown-toggle no-arrow">
-                        <span class="micon bi bi-chat-right-dots"></span
+                    <a href="{{ route('user.index') }}" class="dropdown-toggle no-arrow {{ $title == 'User' ? 'active' : '' }}">
+                        <span class="micon bi bi-people"></span
                         ><span class="mtext">User</span>
                     </a>
                 </li>
                 <li>
-                    <a href="invoice.html" class="dropdown-toggle no-arrow">
+                    <a href="{{ route('paket-wisata.index') }}" class="dropdown-toggle no-arrow {{ $title == 'Paket Wisata' ? 'active' : '' }}">
                         <span class="micon bi bi-receipt-cutoff"></span
                         ><span class="mtext">Paket wisata</span>
                     </a>
                 </li>
                 <li>
-                    <a href="invoice.html" class="dropdown-toggle no-arrow">
-                        <span class="micon bi bi-receipt-cutoff"></span
+                    <a href="/logout" class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-arrow-left-circle-fill"></span
                         ><span class="mtext">Logout</span>
                     </a>
                 </li>

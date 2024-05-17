@@ -4,6 +4,7 @@
 		<!-- Basic Page Info -->
 		<meta charset="utf-8" />
 		<title>@yield('title')</title>
+		<link rel="shortcut icon" href="{{ asset('images/logo-curug.png') }}" type="image/x-icon">
 
 		<!-- Mobile Specific Metas -->
 		<meta
@@ -33,6 +34,7 @@
 			type="text/css"
 			href="{{ asset('admin/src/plugins/datatables/css/responsive.bootstrap4.min.css') }}"
 		/>
+		
 		<link rel="stylesheet" type="text/css" href="{{ asset('admin/vendors/styles/style.css') }}" />
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -70,10 +72,20 @@
 		<script src="{{ asset('admin/vendors/scripts/process.js') }}"></script>
 		<script src="{{ asset('admin/vendors/scripts/layout-settings.js') }}"></script>
 		<script src="{{ asset('admin/src/plugins/apexcharts/apexcharts.min.js') }}"></script>
+		<script src="{{ asset('admin/vendors/scripts/dashboard3.js') }}"></script>
 		<script src="{{ asset('admin/src/plugins/datatables/js/jquery.dataTables.min.js') }}"></script>
 		<script src="{{ asset('admin/src/plugins/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
 		<script src="{{ asset('admin/src/plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
 		<script src="{{ asset('admin/src/plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
-		<script src="{{ asset('admin/vendors/scripts/dashboard3.js') }}"></script>
+		<!-- buttons for Export datatable -->
+		<script src="{{ asset('admin/src/plugins/datatables/js/dataTables.buttons.min.js') }}"></script>
+		<script src="{{ asset('admin/src/plugins/datatables/js/buttons.bootstrap4.min.js') }}"></script>
+		<script src="{{ asset('admin/src/plugins/datatables/js/buttons.print.min.js') }}"></script>
+		<script src="{{ asset('admin/src/plugins/datatables/js/buttons.html5.min.js') }}"></script>
+		<script src="{{ asset('admin/src/plugins/datatables/js/buttons.flash.min.js') }}"></script>
+		<script src="{{ asset('admin/src/plugins/datatables/js/pdfmake.min.js') }}"></script>
+		<script src="{{ asset('admin/src/plugins/datatables/js/vfs_fonts.js') }}"></script>
+		<!-- Datatable Setting js -->
+		<script src="{{ asset('admin/vendors/scripts/datatable-setting.js') }}"></script>
 	</body>
 </html>

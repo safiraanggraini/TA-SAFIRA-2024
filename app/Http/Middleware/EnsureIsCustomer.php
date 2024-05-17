@@ -35,7 +35,7 @@ class EnsureIsCustomer
         $userData = $response->json('data');
 
         if (isset($userData['role']) && strtolower($userData['role']) !== 'customer') {
-            return redirect()->route('auth.login');
+            return redirect('/404');
         }
 
         return $next($request);

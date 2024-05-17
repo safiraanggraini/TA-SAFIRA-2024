@@ -65,7 +65,7 @@
         </div> --}}
     </div>
     <div class="header-right">
-        <div class="user-info-dropdown pt-2 pr-2">
+        <div class="user-info-dropdown pt-3 pr-5">
             <div class="dropdown ">
                 <a
                     class="dropdown-toggle"

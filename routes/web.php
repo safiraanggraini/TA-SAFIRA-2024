@@ -4,6 +4,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PaketWisataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,14 +28,20 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 //     });
 // });
 
-Route::get('coba', function () {
-    return view('welcome');
+Route::get('404', function () {
+    return view('404');
 });
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('admin.konten.dashboard');
+        $title = 'Dashboard';
+        return view('admin.konten.dashboard', ['title' => $title]);
     })->name('admin.dashboard');
+
+    Route::resource('pesanan', PesananController::class);
+    Route::resource('user', UserController::class);
+    Route::resource('paket-wisata', PaketWisataController::class);
+    Route::post('/orders/{id}/check_order', [PesananController::class, 'isChecked'])->name('orders.check');
 });
 
 Route::middleware(['customer'])->group(function () {

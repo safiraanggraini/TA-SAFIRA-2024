@@ -35,7 +35,7 @@ class EnsureIsAdmin
         if ($user_data) {
             $user_data = json_decode($user_data);
             if (strtolower($user_data->role) !== 'admin') {
-                return redirect()->route('auth.login');
+                return redirect('/404');
             }
         }
 
