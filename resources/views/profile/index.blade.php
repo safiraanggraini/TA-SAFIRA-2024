@@ -50,6 +50,7 @@
                                             enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
+
                                             @if (session('success'))
                                                 <div class="alert alert-success">
                                                     {{ session('success') }}
@@ -57,9 +58,17 @@
                                             @endif
 
                                             @if (session('error'))
-                                                <div class="alert alert-danger">
-                                                    {{ session('error') }}
-                                                </div>
+                                                @if (is_array(session('error')))
+                                                    <div class="alert alert-danger">
+                                                        @foreach (session('error') as $errorMessage)
+                                                            <p>{{ $errorMessage }}</p>
+                                                        @endforeach
+                                                    </div>
+                                                @else
+                                                    <div class="alert alert-danger">
+                                                        {{ session('error') }}
+                                                    </div>
+                                                @endif
                                             @endif
 
                                             @if ($errors->any())
@@ -71,10 +80,6 @@
                                                     </ul>
                                                 </div>
                                             @endif
-                                            <div class="mb-3">
-                                                <label for="#image" class="form-label">Ganti Foto Profil</label>
-                                                <input type="file" class="form-control" id="image" name="image">
-                                            </div>
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">Nama</label>
                                                 <input type="text" class="form-control" id="name" name="name"
@@ -98,6 +103,10 @@
                                                     name="phone_number"
                                                     value="{{ old('phone_number', $userData['phone_number'] ?? '') }}"
                                                     placeholder="Masukkan nomor handphone">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="#image" class="form-label">Ganti Foto Profil</label>
+                                                <input type="file" name="image" id="image" class="form-control input-lg" tabindex="6">
                                             </div>
                                             <div class="text-center">
                                                 <button class="btn btn-primary mx-auto" type="submit">Simpan</button>

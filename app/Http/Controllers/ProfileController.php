@@ -42,7 +42,6 @@ class ProfileController extends Controller
     {
         $token = Cookie::get('token');
         $userData = json_decode(Cookie::get('user_data'));
-
         // Cek apakah file gambar telah disertakan dalam permintaan
         if ($request->hasFile('image')) {
             $response = Http::withToken($token)->attach(
@@ -64,15 +63,15 @@ class ProfileController extends Controller
         if ($response->successful()) {
             $data = $response->json();
 
-            // Menyatukan data yang diperbarui dengan data pengguna yang lama
             $updatedUserData = array_merge((array) $userData, $data['data']);
 
-            // Memperbarui cookie dengan data pengguna yang sudah diperbarui termasuk peran
             Cookie::queue('user_data', json_encode($updatedUserData), 30 * 60 * 1000);
 
-            return redirect()->back()->with('success', 'Profil berhasil diperbarui');
+            return redirect()->back()->with('success', $data['message']);
         } else {
-            return redirect()->back()->with('error', 'Gagal memperbarui profil');
+            $errors = $response->json();
+            $errorMessage = isset($errors['message']) ? $errors['message'] : 'Gagal memperbarui profil.';
+            return redirect()->back()->with('error', $errorMessage);
         }
     }
 
@@ -84,9 +83,8 @@ class ProfileController extends Controller
             'current_password' => $request->input('current_password'),
             'password' => $request->input('password'),
         ]);
-        
 
-        if ($response->successful()){
+        if ($response->successful()) {
             $data = $response->json();
             return redirect()->back()->with('success', $data['message']);
         } else {
@@ -97,6 +95,6 @@ class ProfileController extends Controller
 
     public function destroy($id)
     {
-        
+
     }
 }
