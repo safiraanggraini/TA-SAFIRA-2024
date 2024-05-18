@@ -20,7 +20,7 @@
                 <div class="text-center">
                     <h3>Pemesanan tiket anda telah dikonfirmasi</h3>
                     <p class="mt-2">Silahkan lakukan pembayaran melalui transfer dan lakukan konfirmasi melalui
-                        WhatsApp admin Curug Pletuk. Anda dapat meilhat riwayat pesanan anda di halam user profile</p>
+                        WhatsApp admin Curug Pletuk. Anda dapat meilhat riwayat pesanan anda di halaman user profile</p>
                     <div class="d-flex justify-content-between font-weight-bold">
                         <div class="ml-4">
                             <p class="mb-0">BCA: 0896-0470-2658</p>

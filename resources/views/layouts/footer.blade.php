@@ -34,7 +34,7 @@
                                 Kab. Banjarnegara, Jawa Tengah 53418</span></li>
                             <li><a href="#"><span class="icon icon-phone"></span><span class="text">+62 878-4841-4339</span></a></li>
                             <li><a href="#"><span class="icon icon-envelope"></span><span
-                                        class="text">info@yourdomain.com</span></a></li>
+                                        class="text">curugpletukkinayung@gmail.com</span></a></li>
                         </ul>
                     </div>
                 </div>
