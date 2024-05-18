@@ -33,11 +33,7 @@ Route::get('404', function () {
 });
 
 Route::middleware(['admin'])->group(function () {
-    Route::get('/dashboard', function () {
-        $title = 'Dashboard';
-        return view('admin.konten.dashboard', ['title' => $title]);
-    })->name('admin.dashboard');
-
+    Route::resource('dashboard', DashboardController::class);
     Route::resource('pesanan', PesananController::class);
     Route::resource('user', UserController::class);
     Route::resource('paket-wisata', PaketWisataController::class);

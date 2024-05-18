@@ -106,7 +106,7 @@
                     localStorage.setItem('tokenExpiration', expirationTime.getTime());
 
                     if (userData.role.toLowerCase() == 'admin') {
-                        window.location.href = "{{ route('admin.dashboard') }}";
+                        window.location.href = "{{ route('dashboard.index') }}";
                     } else {
                         window.location.href = "{{ route('home.index') }}";
                     }
