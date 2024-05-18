@@ -23,48 +23,57 @@
                                 </ol>
                             </nav>
                         </div>
-                        <div class="col-md-6 col-sm-12 text-right">
-                            <div class="dropdown">
+                        <div class="col-md-6 col-sm-12 ">
+                            <div class="dropdown text-right">
                                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Medium-modal"
                                     type="button">
                                     Tambah
                                 </a>
-                                <div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog"
-                                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            </div>
+                            <div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog"
+                                aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="myLargeModalLabel">
-                                                    Large modal
-                                                </h4>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-hidden="true">
-                                                    ×
-                                                </button>
-                                            </div>
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="myLargeModalLabel">
+                                                Tambah Produk
+                                            </h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                ×
+                                            </button>
+                                        </div>
+                                        <form class="text-main py-3" action="{{ route('paket-wisata.store') }}"
+                                            method="POST" enctype="multipart/form-data">
+                                            @method('POST')
+                                            @csrf
                                             <div class="modal-body">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit, sed do eiusmod tempor incididunt ut labore et
-                                                    dolore magna aliqua. Ut enim ad minim veniam, quis
-                                                    nostrud exercitation ullamco laboris nisi ut aliquip
-                                                    ex ea commodo consequat. Duis aute irure dolor in
-                                                    reprehenderit in voluptate velit esse cillum dolore eu
-                                                    fugiat nulla pariatur. Excepteur sint occaecat
-                                                    cupidatat non proident, sunt in culpa qui officia
-                                                    deserunt mollit anim id est laborum.
-                                                </p>
+                                                <div class="mb-3">
+                                                    <label for="name" class="form-label"
+                                                        style="text-align:left !important;">Nama Produk</label>
+                                                    <input type="text" class="form-control" id="package_name"
+                                                        name="package_name" required placeholder="Masukkan nama produk">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="price" class="form-label">Harga</label>
+                                                    <input type="number" class="form-control" id="price" name="price"
+                                                        placeholder="Masukkan harga">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="description" class="form-label">Deskripsi</label>
+                                                    <input type="text" class="form-control" id="description"
+                                                        name="description" placeholder="Masukkan deskripsi">
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                                     Close
                                                 </button>
-                                                <button type="button" class="btn btn-primary">
+                                                <button type="submit" class="btn btn-primary">
                                                     Save changes
                                                 </button>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -77,6 +86,35 @@
                         <h4 class="text-blue h4">List Produk </h4>
                     </div>
                     <div class="pb-20">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if (session('error'))
+                            @if (is_array(session('error')))
+                                <div class="alert alert-danger">
+                                    @foreach (session('error') as $errorMessage)
+                                        <p>{{ $errorMessage }}</p>
+                                    @endforeach
+                                </div>
+                            @else
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                        @endif
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <table class="checkbox-datatable table nowrap">
                             <colgroup>
                                 <col style="width: 5%;">
@@ -87,11 +125,7 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th>
-                                        <div class="dt-checkbox">
-                                            No
-                                        </div>
-                                    </th>
+                                    <th>No</th>
                                     <th>Nama Paket</th>
                                     <th>Harga</th>
                                     <th>Deskripsi</th>
@@ -103,94 +137,82 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $product['package_name'] }}</td>
-                                        <td>Rp {{ number_format($product['price'], 0, ',', '.') }}
+                                        <td>Rp {{ number_format($product['price'], 0, ',', '.') }}</td>
                                         <td>{{ Str::limit($product['description'], 60) }}</td>
                                         <td>
                                             <div class="dropdown mt-2 d-inline-block">
-                                                <a href="#" class="btn btn-warning" style="width: 80px" data-toggle="modal"
-                                                    data-target="#Medium-modal" type="button">
+                                                <a href="#" class="btn btn-warning" style="width: 80px"
+                                                    data-toggle="modal" data-target="#edit-modal-{{ $product['id'] }}" type="button">
                                                     Edit
                                                 </a>
-                                                <div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog"
+                                                <div class="modal fade" id="edit-modal-{{ $product['id'] }}" tabindex="-1" role="dialog"
                                                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
-
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h4 class="modal-title" id="myLargeModalLabel">
-                                                                    Large modal
-                                                                </h4>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-hidden="true">
-                                                                    ×
-                                                                </button>
+                                                                <h4 class="modal-title" id="myLargeModalLabel">Edit Produk</h4>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                             </div>
-                                                            <div class="modal-body">
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                                    elit, sed do eiusmod tempor incididunt ut labore et
-                                                                    dolore magna aliqua. Ut enim ad minim veniam, quis
-                                                                    nostrud exercitation ullamco laboris nisi ut aliquip
-                                                                    ex ea commodo consequat. Duis aute irure dolor in
-                                                                    reprehenderit in voluptate velit esse cillum dolore eu
-                                                                    fugiat nulla pariatur. Excepteur sint occaecat
-                                                                    cupidatat non proident, sunt in culpa qui officia
-                                                                    deserunt mollit anim id est laborum.
-                                                                </p>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">
-                                                                    Close
-                                                                </button>
-                                                                <button type="button" class="btn btn-primary">
-                                                                    Save changes
-                                                                </button>
-                                                            </div>
+                                                            <form class="text-main py-3"
+                                                                action="{{ route('paket-wisata.update', $product['id']) }}"
+                                                                method="POST" enctype="multipart/form-data">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <div class="modal-body">
+                                                                    <div class="mb-3">
+                                                                        <label for="package_name" class="form-label"
+                                                                            style="text-align:left !important;">Nama Produk</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="package_name" name="package_name" required
+                                                                            value="{{ old('package_name', $product['package_name']) }}"
+                                                                            placeholder="Masukkan nama produk">
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="price" class="form-label">Harga</label>
+                                                                        <input type="number" class="form-control"
+                                                                            id="price" name="price" required
+                                                                            value="{{ old('price', $product['price']) }}"
+                                                                            placeholder="Masukkan harga">
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="description" class="form-label">Deskripsi</label>
+                                                                        <textarea class="form-control" id="description" name="description" placeholder="Masukkan deskripsi">{{ old('description', $product['description']) }}</textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="dropdown mt-2 d-inline-block ml-1">
-                                                <a href="#" class="btn btn-danger" style="width: 80px" data-toggle="modal"
-                                                    data-target="#Medium-modal" type="button">
+                                                <a href="#" class="btn btn-danger" style="width: 80px"
+                                                    data-toggle="modal" data-target="#hapus-modal-{{ $product['id'] }}" type="button">
                                                     Hapus
                                                 </a>
-                                                <div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog"
+                                                <div class="modal fade" id="hapus-modal-{{ $product['id'] }}" tabindex="-1" role="dialog"
                                                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
-
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h4 class="modal-title" id="myLargeModalLabel">
-                                                                    Large modal
-                                                                </h4>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-hidden="true">
-                                                                    ×
-                                                                </button>
+                                                                <h4 class="modal-title" id="myLargeModalLabel">Hapus Produk</h4>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                                    elit, sed do eiusmod tempor incididunt ut labore et
-                                                                    dolore magna aliqua. Ut enim ad minim veniam, quis
-                                                                    nostrud exercitation ullamco laboris nisi ut aliquip
-                                                                    ex ea commodo consequat. Duis aute irure dolor in
-                                                                    reprehenderit in voluptate velit esse cillum dolore eu
-                                                                    fugiat nulla pariatur. Excepteur sint occaecat
-                                                                    cupidatat non proident, sunt in culpa qui officia
-                                                                    deserunt mollit anim id est laborum.
-                                                                </p>
+                                                                <p>Apakah Anda yakin ingin menghapus produk ini?</p>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">
-                                                                    Close
-                                                                </button>
-                                                                <button type="button" class="btn btn-primary">
-                                                                    Save changes
-                                                                </button>
+                                                                    data-dismiss="modal">Close</button>
+                                                                <form action="{{ route('paket-wisata.destroy', $product['id']) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="btn btn-primary">Hapus</button>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -201,6 +223,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        
                     </div>
                 </div>
                 <!-- Export Datatable End -->

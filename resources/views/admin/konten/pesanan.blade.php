@@ -31,7 +31,7 @@
                         <h4 class="text-blue h4">List Pesanan </h4>
                     </div>
                     <div class="pb-20">
-                        <table class="table hover multiple-select-row data-table-export nowrap">
+                        <table class="table hover data-table-export nowrap">
                             <thead>
                                 <tr>
                                     <th>Nomor</th>

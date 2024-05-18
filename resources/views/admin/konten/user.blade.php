@@ -23,183 +23,67 @@
                                 </ol>
                             </nav>
                         </div>
-                        <div class="col-md-6 col-sm-12 text-right">
-                            <div class="dropdown">
-                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Medium-modal"
-                                    type="button">
-                                    Tambah 
-                                </a>
-                                <div
-									class="modal fade"
-									id="Medium-modal"
-									tabindex="-1"
-									role="dialog"
-									aria-labelledby="myLargeModalLabel"
-									aria-hidden="true"
-								>
-									<div class="modal-dialog modal-dialog-centered">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h4 class="modal-title" id="myLargeModalLabel">
-													Large modal
-												</h4>
-												<button
-													type="button"
-													class="close"
-													data-dismiss="modal"
-													aria-hidden="true"
-												>
-													×
-												</button>
-											</div>
-											<div class="modal-body">
-												<p>
-													Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit, sed do eiusmod tempor incididunt ut labore et
-													dolore magna aliqua. Ut enim ad minim veniam, quis
-													nostrud exercitation ullamco laboris nisi ut aliquip
-													ex ea commodo consequat. Duis aute irure dolor in
-													reprehenderit in voluptate velit esse cillum dolore eu
-													fugiat nulla pariatur. Excepteur sint occaecat
-													cupidatat non proident, sunt in culpa qui officia
-													deserunt mollit anim id est laborum.
-												</p>
-											</div>
-											<div class="modal-footer">
-												<button
-													type="button"
-													class="btn btn-secondary"
-													data-dismiss="modal"
-												>
-													Close
-												</button>
-												<button type="button" class="btn btn-primary">
-													Save changes
-												</button>
-											</div>
-										</div>
-									</div>
-								</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- Export Datatable start -->
                 <div class="card-box mb-30">
                     <div class="pd-20">
-                        <h4 class="text-blue h4">Data Table with Export Buttons</h4>
+                        <h4 class="text-blue h4">List Pesanan </h4>
                     </div>
                     <div class="pb-20">
-                        <table class="table hover multiple-select-row data-table-export nowrap">
+                        <table class="table hover  data-table-export nowrap">
                             <thead>
                                 <tr>
-                                    <th class="table-plus datatable-nosort">Name</th>
-                                    <th>Age</th>
-                                    <th>Office</th>
-                                    <th>Address</th>
-                                    <th>Start Date</th>
-                                    <th>Salart</th>
+                                    <th>Nomor</th>
+                                    <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="table-plus">Gloria F. Mead</td>
-                                    <td>25</td>
-                                    <td>Sagittarius</td>
-                                    <td>2829 Trainer Avenue Peoria, IL 61602</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-plus">Andrea J. Cagle</td>
-                                    <td>30</td>
-                                    <td>Gemini</td>
-                                    <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-plus">Andrea J. Cagle</td>
-                                    <td>20</td>
-                                    <td>Gemini</td>
-                                    <td>2829 Trainer Avenue Peoria, IL 61602</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-plus">Andrea J. Cagle</td>
-                                    <td>30</td>
-                                    <td>Sagittarius</td>
-                                    <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-plus">Andrea J. Cagle</td>
-                                    <td>25</td>
-                                    <td>Gemini</td>
-                                    <td>2829 Trainer Avenue Peoria, IL 61602</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-plus">Andrea J. Cagle</td>
-                                    <td>20</td>
-                                    <td>Sagittarius</td>
-                                    <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-plus">Andrea J. Cagle</td>
-                                    <td>18</td>
-                                    <td>Gemini</td>
-                                    <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-plus">Andrea J. Cagle</td>
-                                    <td>30</td>
-                                    <td>Sagittarius</td>
-                                    <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-plus">Andrea J. Cagle</td>
-                                    <td>30</td>
-                                    <td>Sagittarius</td>
-                                    <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-plus">Andrea J. Cagle</td>
-                                    <td>30</td>
-                                    <td>Gemini</td>
-                                    <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-plus">Andrea J. Cagle</td>
-                                    <td>30</td>
-                                    <td>Gemini</td>
-                                    <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-plus">Andrea J. Cagle</td>
-                                    <td>30</td>
-                                    <td>Gemini</td>
-                                    <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                                    <td>29-03-2018</td>
-                                    <td>$162,700</td>
-                                </tr>
+                                @foreach ($users as $index => $user)
+                                    <tr>
+                                        <th class="table-plus pl-3">{{ $index + 1 }}</th>
+                                        <td>{{ $user['name'] }}</td>
+                                        <td>{{ $user['email'] }}</td>
+                                        <td>{{ $user['role'] }}</td>
+                                        <td>
+                                            <div class="dropdown mt-2 d-inline-block">
+                                                <a href="#" class="btn btn-primary" style="width: 80px"
+                                                    data-toggle="modal" data-target="#detail-modal-{{ $user['id'] }}"
+                                                    type="button" onclick="showUserDetail({{ $user['id'] }})">
+                                                    Detail
+                                                </a>
+                                                <div class="modal fade" id="detail-modal-{{ $user['id'] }}" tabindex="-1"
+                                                    role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title" id="myLargeModalLabel">Detail User
+                                                                </h4>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-hidden="true">
+                                                                    ×
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body" id="modal-body-{{ $user['id'] }}">
+                                                                <!-- Detail user akan dimuat di sini -->
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
+
                     </div>
                 </div>
                 <!-- Export Datatable End -->
@@ -207,4 +91,40 @@
         </div>
     </div>
     </div>
+
+    <script>
+        function showUserDetail(userId) {
+            const token = '{{ Cookie::get('token') }}'; // Mendapatkan token dari cookie
+
+            fetch(`https://curug-pletuk.fly.dev/users/${userId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 200) {
+                        const user = data.data;
+                        const modalBody = document.getElementById(`modal-body-${userId}`);
+
+                        modalBody.innerHTML = `
+                        <p><strong>ID:</strong> ${user.id}</p>
+                        <p><strong>Nama:</strong> ${user.name}</p>
+                        <p><strong>Email:</strong> ${user.email}</p>
+                        <p><strong>Address:</strong> ${user.address ?? 'N/A'}</p>
+                        <p><strong>Phone Number:</strong> ${user.phone_number ?? 'N/A'}</p>
+                        <p><strong>Avatar:</strong></p>
+                        <img src="${user.avatar.image_url ?? 'https://via.placeholder.com/150'}" alt="Avatar" style="width: 150px;">
+                    `;
+                    } else {
+                        alert('Gagal mengambil data pengguna.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Terjadi kesalahan saat mengambil data pengguna.');
+                });
+        }
+    </script>
+
 @endsection

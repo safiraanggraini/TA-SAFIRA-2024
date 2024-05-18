@@ -26,7 +26,7 @@ $('document').ready(function () {
 			targets: "datatable-nosort",
 			orderable: false,
 		}],
-		"lengthMenu": [[25, 50, -1], [25, 50, "All"]],
+		"lengthMenu": [[10, 25, 50, -1], [10,25, 50, "All"]],
 		"language": {
 			"info": "_START_-_END_ of _TOTAL_ entries",
 			searchPlaceholder: "Search",
@@ -35,10 +35,10 @@ $('document').ready(function () {
 				previous: '<i class="ion-chevron-left"></i>'
 			}
 		},
-		dom: 'Bfrtp',
-		buttons: [
-			'copy', 'csv', 'pdf', 'print'
-		]
+		// dom: 'Bfrtp',
+		// buttons: [
+		// 	'copy', 'csv', 'pdf', 'print'
+		// ]
 	});
 
 	var table = $('.select-row').DataTable();
