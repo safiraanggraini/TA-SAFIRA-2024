@@ -28,6 +28,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 //     });
 // });
 
+// Route::get('/coba', function () {
+//     return view('welcome');
+// });
+
+
 Route::get('404', function () {
     return view('404');
 });
@@ -44,6 +49,9 @@ Route::middleware(['customer'])->group(function () {
     Route::resource('booking', BookingController::class);
     Route::resource('profile', ProfileController::class);
     Route::put('/profile/change-password/{id}', [ProfileController::class, 'changePassword'])->name('profile.changePassword');
+    Route::get('/success', function () {
+        return view('booking.success');
+    });
 });
 
 Route::get('/register', [AuthController::class, 'indexRegister'])->name('auth.register');

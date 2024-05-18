@@ -54,8 +54,7 @@ class BookingController extends Controller
 
         if ($response->successful()) {
             $data = $response->json();
-            return redirect()->back()->with('success', $data['message']);
-        } else {
+            return redirect('/success')->with('success', $data['message']);        } else {
             $errors = $response->json();
             return redirect()->back()->with('error', $errors['message'] ?? 'Gagal melakukan pemesanan.');
         }
