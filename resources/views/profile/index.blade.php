@@ -220,7 +220,7 @@
                                         </div>
 
                                         <div class="text-center">
-                                            <button type="submit" style="width: 250px" class="btn btn-primary">Ubah
+                                            <button type="submit" style="width: 100%" class="btn btn-primary mx-auto">Ubah
                                                 Password</button>
                                         </div>
                                     </form>

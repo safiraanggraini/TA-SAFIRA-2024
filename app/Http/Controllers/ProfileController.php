@@ -17,6 +17,7 @@ class ProfileController extends Controller
 
     public function index(Request $request)
     {
+        $title = 'Profile';
         $token = Cookie::get('token');
 
         $response = Http::withToken($token)->get($this->apiUrl . '/me');
@@ -35,7 +36,7 @@ class ProfileController extends Controller
 
         $userData = $response->json('data');
         // dd($userOrder);
-        return view('profile.index', ['userData' => $userData, 'userOrder' => $userOrder]);
+        return view('profile.index', ['userData' => $userData, 'userOrder' => $userOrder, 'title' => $title]);
     }
 
     public function update(Request $request, $id)

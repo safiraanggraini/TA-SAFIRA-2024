@@ -28,7 +28,7 @@
                         </div>
                         <div class="mr-4">WhatsApp admin: 0896-0470-2658</div>
                     </div>
-                    <button class="btn btn-primary w-full">Kembali ke Beranda</button>
+                    <a href="/"><button class="btn btn-primary w-full">Kembali ke Beranda</button></a>
                 </div>
             </div>
         </div>

@@ -18,12 +18,14 @@ class AuthController extends Controller
 
     public function indexLogin()
     {
-        return view('auth.login');
+        $title = 'Login';
+        return view('auth.login', ['title' => $title]);
     }
 
     public function indexRegister()
     {
-        return view('auth.register');
+        $title = 'Register';
+        return view('auth.register', ['title' => $title]);
     }
 
     public function loginProcess(Request $request)

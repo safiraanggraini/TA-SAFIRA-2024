@@ -8,10 +8,10 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="/#" class="nav-link">Beranda</a></li>
-                <li class="nav-item"><a href="/#tentang" class="nav-link">Tentang Kami</a></li>
-                <li class="nav-item"><a href="/#paket" class="nav-link">Paket Wisata</a></li>
-                <li class="nav-item"><a href="/booking" class="nav-link">Booking</a></li>
+                <li class="nav-item {{ Request::is('/') || Request::is('/#') ? 'active' : '' }}"><a href="/#" class="nav-link">Beranda</a></li>
+                <li class="nav-item {{ Request::is('/#tentang') ? 'active' : '' }}"><a href="/#tentang" class="nav-link">Tentang Kami</a></li>
+                <li class="nav-item {{ Request::is('/#paket') ? 'active' : '' }}" ><a href="/#paket" class="nav-link">Paket Wisata</a></li>
+                <li class="nav-item {{ $title == 'Booking' ? 'active' : '' }}"><a href="/booking" class="nav-link">Booking</a></li>
                 @if (Cookie::has('token'))
                     @php
                         $userData = json_decode(Cookie::get('user_data'));

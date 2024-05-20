@@ -13,7 +13,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('landing.index');
+        $title = 'Home';
+        return view('landing.index', ['title'=> $title]);
     }
 
     /**

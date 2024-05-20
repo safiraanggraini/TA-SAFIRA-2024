@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 
 class BookingController extends Controller
 {
+    protected $apiUrl;
     public function __construct()
     {
         $this->apiUrl = env('API_URL') ?? 'https://curug-pletuk.fly.dev';
@@ -15,6 +16,7 @@ class BookingController extends Controller
 
     public function index()
     {
+        $title = 'Booking';
         $token = Cookie::get('token');
 
         $response = Http::withToken($token)->get($this->apiUrl . '/me');
@@ -39,6 +41,7 @@ class BookingController extends Controller
         return view('booking.index', [
             'userData' => $userData,
             'products' => $products,
+            'title' => $title
         ]);
     }
 

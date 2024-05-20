@@ -108,7 +108,7 @@
                     if (userData.role.toLowerCase() == 'admin') {
                         window.location.href = "{{ route('dashboard.index') }}";
                     } else {
-                        window.location.href = "{{ route('home.index') }}";
+                        window.location.href = "{{ route('profile.index') }}";
                     }
 
                     setTimeout(function() {
