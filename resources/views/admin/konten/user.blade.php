@@ -49,37 +49,39 @@
                                         <td>{{ $user['email'] }}</td>
                                         <td>{{ $user['role'] }}</td>
                                         <td>
-                                            <div class="dropdown mt-2 d-inline-block">
-                                                <a href="#" class="btn btn-primary" style="width: 80px"
+                                            <div class="d-inline-block">
+                                                <a href="#" class="btn btn-primary mb-1" style="width: 80px"
                                                     data-toggle="modal" data-target="#detail-modal-{{ $user['id'] }}"
                                                     type="button" onclick="showUserDetail({{ $user['id'] }})">
                                                     Detail
                                                 </a>
-                                                <div class="modal fade" id="detail-modal-{{ $user['id'] }}" tabindex="-1"
-                                                    role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title" id="myLargeModalLabel">Detail User
-                                                                </h4>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-hidden="true">
-                                                                    ×
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body" id="modal-body-{{ $user['id'] }}">
-                                                                <!-- Detail user akan dimuat di sini -->
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </td>
                                     </tr>
+                                    <div class="modal fade" id="detail-modal-{{ $user['id'] }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="detailModalLabel{{ $user['id'] }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="detailModalLabel{{ $user['id'] }}">Detail
+                                                        User
+                                                    </h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">
+                                                        ×
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body" id="modal-body-{{ $user['id'] }}">
+                                                    <!-- Detail user akan dimuat di sini -->
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endforeach
                             </tbody>
                         </table>
@@ -89,7 +91,6 @@
                 <!-- Export Datatable End -->
             </div>
         </div>
-    </div>
     </div>
 
     <script>
@@ -114,7 +115,7 @@
                         <p><strong>Address:</strong> ${user.address ?? 'N/A'}</p>
                         <p><strong>Phone Number:</strong> ${user.phone_number ?? 'N/A'}</p>
                         <p><strong>Avatar:</strong></p>
-                        <img src="${user.avatar.image_url ?? 'https://via.placeholder.com/150'}" alt="Avatar" style="width: 150px;">
+                        <img src="${user.avatar?.image_url ?? 'https://via.placeholder.com/150'}" alt="Avatar" style="width: 150px;">
                     `;
                     } else {
                         alert('Gagal mengambil data pengguna.');
@@ -126,5 +127,4 @@
                 });
         }
     </script>
-
 @endsection

@@ -8,9 +8,9 @@
                     <h2 class="ftco-heading-2">Curug Pletuk</h2>
                     <p>Curug Pletuk adalah sebuah objek wisata alam yang terletak di Desa Jatisari, Pesangkalan, Kecamatan Pangedongan, Kabupaten Banjarnegara. Tempat ini menawarkan pemandangan alam yang indah dan menyegarkan.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                        <li class="ftco-animate"><a href="#"><span class="icon-youtube"></span></a></li>
-                        <li class="ftco-animate"><a href="https://www.facebook.com/curug.pletuk.1"><span class="icon-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="https://www.instagram.com/curug_pletuk/"><span class="icon-instagram"></span></a></li>
+                        <li class="ftco-animate"><a target="_blank" href="https://youtube.com/@pletukofficial8590?si=QbKVxHtf3oVFXLNQ"><span class="icon-youtube"></span></a></li>
+                        <li class="ftco-animate"><a target="_blank" href="https://www.facebook.com/curug.pletuk.1"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a target="_blank" href="https://www.instagram.com/curug_pletuk/"><span class="icon-instagram"></span></a></li>
                     </ul>
                 </div>
             </div>
