@@ -51,7 +51,8 @@ Route::middleware(['customer'])->group(function () {
     Route::resource('profile', ProfileController::class);
     Route::put('/profile/change-password/{id}', [ProfileController::class, 'changePassword'])->name('profile.changePassword');
     Route::get('/success', function () {
-        return view('booking.success');
+        $title = 'Success'; 
+        return view('booking.success', ['title' => $title]);
     });
 });
 
