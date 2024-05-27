@@ -55,10 +55,9 @@
                                 <input name="regsiter" id="regsiter" class="btn btn-block login-btn mb-4" type="submit"
                                     value="register">
                             </form>
-                            <a href="#!" class="forgot-password-link">Forgot password?</a>
-                            <p class="login-card-footer-text">Have an account? <a href="{{ route('auth.login') }}"
-                                    class="text-reset">Login
-                                    here</a></p>
+                            <a href="#!" class="forgot-password-link">Lupa Password?</a>
+                            <p class="login-card-footer-text">Sudah Punya Akun? <a href="{{ route('auth.login') }}"
+                                    class="text-reset">Login Disini</a></p>
                             <nav class="login-card-footer-nav">
                                 <a href="/">Kembali ke Beranda</a>
                             </nav>

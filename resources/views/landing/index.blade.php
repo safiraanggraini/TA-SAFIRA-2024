@@ -8,11 +8,11 @@
         <div class="slider-item" style="background-image:url(images/curug.jpg);">
             <div class="overlay"></div>
             <div class="container">
-                <div class="row no-gutters slider-text align-items-center justify-content-end">
+                <div class="row no-gutters slider-text align-items-center justify-content-center">
                     <div class="col-md-6 ftco-animate">
                         <div class="text">
                             <h2>Nikmati Liburan Anda</h2>
-                            <h1 class="mb-3">Temukan Petualangan Baru Di Destinasi Wisata Pilihan</h1>
+                            <h1 class="mb-3">Temukan Petualangan Baru Di Destinasi Wisata Curug Pletuk</h1>
                         </div>
                     </div>
                 </div>
@@ -242,7 +242,7 @@
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
                     <a href="blog-single.html" class="block-20 rounded"
-                        style="background-image: url('images/susur\ sungai.jpg');">
+                        style="background-image: url('images/susur sungai.jpg');">
                     </a>
                     <div class="text mt-3 text-center">
                         <h3 class="heading"><a href="#susur-sungai">Wisata Susur Sungai Curug Pletuk</a></h3>
@@ -265,12 +265,12 @@
                             style="background-image: url(images/outbonds.jpg); background-size: auto;"></div>
                     </div>
                     <div class="item">
-                        <div class="resto-img rounded" style="background-image: url(images/Apa-itu-outbound.jpg);">
+                        <div class="resto-img rounded" style="background-image: url(images/outbound1.jpg);">
                         </div>
                     </div>
                     <div class="item">
                         <div class="resto-img rounded"
-                            style="background-image: url(images/Tips-Penting-Sebelum-Melaksanakan-Kegiatan-Outbond-5.jpg);">
+                            style="background-image: url(images/Outbound2.jpg);">
                         </div>
                     </div>
                 </div>
@@ -291,7 +291,12 @@
                     crew, Sound sistem, Banner ukuran 1x3 meter, Tepung warna, Dokumentasi foto soft file dan video
                     edit (darat).
                 </p>
-                <p><a href="#" class="btn btn-secondary rounded">Booking sekarang</a></p>
+                <!-- ORI <p><a href="#" class="btn btn-secondary rounded">Booking sekarang</a></p> -->
+
+                <p class="{{ $title == 'Booking' ? 'active' : '' }}">
+                  <a href="/booking" class="btn btn-secondary rounded">Booking Sekarang </a>
+                </p>
+
             </div>
         </div>
     </div>
@@ -308,15 +313,20 @@
                 <p style="text-align: justify;">Paket Basic : Rp. 200.000 sudah termasuk : Tenda, Matras, Sleeping Bag, Peralatan Api Unggun,
                     Free Parkir, Free All Access Wisata.</p>
                 <p style="text-align: justify;">Paket Add On Camp : Rp. 350.000 sudah termasuk : Tenda, Matras, Sleeping Bag, Peralatan Api Unggun, Paket BBQ, Free Parkir, Free All Access Wisata.</p>
-                <p><a href="#" class="btn btn-secondary rounded">Booking sekarang</a></p>
+                <!-- ORI BUTTON <p><a href="#" class="btn btn-secondary rounded">Booking sekarang</a></p> -->
+
+                <p class="{{ $title == 'Booking' ? 'active' : '' }}">
+                  <a href="/booking" class="btn btn-secondary rounded">Booking Sekarang</a>
+                </p>
+
             </div>
             <div class="col-md-6">
                 <div class="single-slider-resto mb-4 mb-md-0 owl-carousel">
                     <div class="item">
-                        <div class="resto-img rounded" style="background-image: url(images/camp.jpg);"></div>
+                        <div class="resto-img rounded" style="background-image: url(images/camping2.jpeg);"></div>
                     </div>
                     <div class="item">
-                        <div class="resto-img rounded" style="background-image: url(images/camping.jpg);"></div>
+                        <div class="resto-img rounded" style="background-image: url(images/camping1.png);"></div>
                     </div>
                 </div>
             </div>
@@ -329,9 +339,10 @@
             <div class="col-md-6">
                 <div class="single-slider-resto mb-4 mb-md-0 owl-carousel">
                     <div class="item">
-                        <div class="resto-img rounded" style="background-image: url(images/OIPS.jpeg);"></div>
+                        <div class="resto-img rounded" style="background-image: url(images/susur.jpg);"></div>
                     </div>
                     <div class="item">   
+                    <div class="resto-img rounded" style="background-image: url(images/OIPS.jpeg);"></div>
                     </div>
                 </div>
             </div>
@@ -343,7 +354,14 @@
                 <p style="text-align: justify;">Menyusuri Aliran Sungai Curug Pletuk Rp. 60.000 / Orang (Min. 5 Orang)
                     Sudah termasuk : Kelapa Muda (bakar), Snack, Pemandu / Guide, Kamar Mandi, Mushola, Dokumentasi, Team Resque, Gazebo, Asuransi.
                     </p>
-                <p><a href="#" class="btn btn-secondary rounded">Booking sekarang</a></p>
+
+                <!-- ORI BUTTON <p><a href="#" class="btn btn-secondary rounded">Booking sekarang</a></p> -->
+                
+                <p class="{{ $title == 'Booking' ? 'active' : '' }}">
+                  <a href="/booking" class="btn btn-secondary rounded">Booking Sekarang</a>
+                </p>
+
+
             </div>
         </div>
     </div>
@@ -367,8 +385,8 @@
                 </a>
             </div>
             <div class="col-sm-12 col-md ftco-animate">
-                <a href="images/IMG_20231008_110434.jpg" class="insta-img image-popup"
-                    style="background-image: url(images/IMG_20231008_110434.jpg);">
+                <a href="images/IMG_20240504_103322.jpg" class="insta-img image-popup"
+                    style="background-image: url(images/IMG_20240504_103322.jpg);">
                     <div class="icon d-flex justify-content-center">
                         <span class="icon-instagram align-self-center"></span>
                     </div>

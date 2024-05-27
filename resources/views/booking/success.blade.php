@@ -6,7 +6,7 @@
 @section('content')
     <div class="vh-100 d-flex justify-content-center align-items-center">
         <div class="col-md-6">
-            <h1 class="text-center">Thank You !</h1>
+            <h1 class="text-center">Terima Kasih !</h1>
             <div class="border border-3 border-success"></div>
             <div class="card  bg-white shadow p-5">
                 <div class="mb-4 text-center">
@@ -20,13 +20,13 @@
                 <div class="text-center">
                     <h3>Pemesanan tiket anda telah dikonfirmasi</h3>
                     <p class="mt-2">Silahkan lakukan pembayaran melalui transfer dan lakukan konfirmasi melalui
-                        WhatsApp admin Curug Pletuk. Anda dapat meilhat riwayat pesanan anda di halaman user profile</p>
+                        WhatsApp admin Curug Pletuk. Anda dapat melihat riwayat pesanan anda di halaman user profile</p>
                     <div class="d-flex justify-content-between font-weight-bold">
                         <div class="ml-4">
-                            <p class="mb-0">BCA: 0896-0470-2658</p>
-                            <p>Dana: 0896-0470-2658</p>
+                            <p class="mb-0">BCA: 006212345</p>
+                            <p>Dana: 0812345678</p>
                         </div>
-                        <div class="mr-4">WhatsApp admin: 0896-0470-2658</div>
+                        <div class="mr-4">WhatsApp admin: 0812345678</div>
                     </div>
                     <a href="/"><button class="btn btn-primary w-full">Kembali ke Beranda</button></a>
                 </div>

@@ -57,9 +57,9 @@
                                     onclick="handleLogin()">Login</button>
                             </form>
 
-                            <a href="#!" class="forgot-password-link">Forgot password?</a>
-                            <p class="login-card-footer-text">Don't have an account? <a href="/register"
-                                    class="text-reset">Register here</a></p>
+                            <a href="#!" class="forgot-password-link">Lupa Password?</a>
+                            <p class="login-card-footer-text">Belum Punya Akun? <a href="/register"
+                                    class="text-reset">Buat Akun</a></p>
                             <nav class="login-card-footer-nav">
                                 <a href="/">Kembali ke Beranda</a>
                             </nav>

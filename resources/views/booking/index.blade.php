@@ -25,7 +25,7 @@
                 </h3>
             </div>
             <div class="col-xl-12 col-lg-8 col-md-9 col-11 text-center">
-                <p class="blue-text">Booking Wisata Curug Pletuk, nikmati wisata </p>
+                <p class="blue-text">Booking Wisata Curug Pletuk </p>
                 <form id="bookingForm" class="form-card" method="POST" action="{{ route('booking.store') }}">
                     @csrf
                     @if (session('success'))
