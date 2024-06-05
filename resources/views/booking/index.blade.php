@@ -90,15 +90,13 @@
                     </div>
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex">
-                            <label class="form-control-label px-3">Tanggal Booking<span class="text-danger">
-                                    *</span></label>
-                            <input type="date" id="check_in" class="form-control" name="check_in"
-                                placeholder="Masukan Tanggal" required>
+                            <label class="form-control-label px-3">Tanggal Booking<span class="text-danger">*</span></label>
+                            <input type="date" id="check_in" class="form-control" name="check_in" placeholder="Masukan Tanggal" required>
                         </div>
                         <div class="form-group col-sm-6 flex-column d-flex">
                             <label class="form-control-label px-3">Jumlah<span class="text-danger"> *</span></label>
                             <input type="number" id="jumlah" class="form-control" name="jumlah"
-                                placeholder="Masukan Jumlah Paket" required>
+                                placeholder="Masukan Jumlah Paket" required min="0">
                         </div>
                     </div>
                     <hr>
@@ -133,6 +131,17 @@
             paketSelect.addEventListener('change', calculateTotal);
             jumlahInput.addEventListener('input', calculateTotal);
         });
+        //buat function untuk blokir tanggal sebelum nya 
+        function getTodayDate() { 
+            const today = new Date();       //buat variabel untuk mengambil tanggal hari ini
+            const year = today.getFullYear();   //mengambil tahun dari variabel today
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Bulan dimulai dari 0
+            const day = String(today.getDate()).padStart(2, '0');       //mengambil hari dari variabel today
+            return `${year}-${month}-${day}`;       //membuat format menjadi tahun bulan hari
+        }
+
+        // Mengatur atribut min pada input tanggal
+        document.getElementById('check_in').setAttribute('min', getTodayDate());
     </script>
 @endsection
 

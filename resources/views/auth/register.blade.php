@@ -1,9 +1,9 @@
 @extends('layouts.auth.app')
 
-@section('title', __('Cat Point - Login'))
+@section('title', __('Curug Pletuk - Login'))
 
 @section('content')
-    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <main class="d-flex align-items-center min-vh-100 py-5 mt-5 py-md-0">
         <div class="container">
             <div class="card login-card">
                 <div class="row no-gutters">
