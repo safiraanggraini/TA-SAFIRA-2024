@@ -23,7 +23,7 @@ class PaketWisataController extends Controller
 
         $response = Http::withToken($token)->get($this->apiUrl . '/products');
 
-        if ($response->failed() || !$response->json('data')) {
+        if ($response->failed()) {
             return redirect()->route('auth.login')->with('error', 'Gagal mengambil data paket wisata.');
         }
 

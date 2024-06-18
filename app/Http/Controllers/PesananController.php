@@ -22,7 +22,7 @@ class PesananController extends Controller
 
         $response = Http::withToken($token)->get($this->apiUrl . '/orders');
 
-        if ($response->failed() || !$response->json('data')) {
+        if ($response->failed()) {
             return redirect()->route('auth.login')->with('error', 'Gagal mengambil data pengguna.');
         }
 
