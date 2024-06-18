@@ -2,7 +2,7 @@
 
 <div class="left-side-bar">
     <div class="brand-logo">
-        <a href="index.html">
+        <a href="/dashboard">
             <h2 class="text-white text-center">Admin Panel</h2>
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">

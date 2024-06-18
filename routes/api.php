@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request; // Mengimpor kelas Request dari Illuminate\Http
+use Illuminate\Support\Facades\Route; // Mengimpor facade Route dari Illuminate\Support\Facades
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Mendefinisikan route yang menggunakan middleware 'auth:sanctum' untuk autentikasi
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) { 
+    return $request->user(); // Mengembalikan data pengguna yang sedang terautentikasi
 });

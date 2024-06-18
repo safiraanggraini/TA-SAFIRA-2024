@@ -65,7 +65,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <table class="checkbox-datatable table nowrap">
+                        <table class="table hover data-table-export nowrap">
                             <colgroup>
                                 <col style="width: 5%;">
                                 <col style="width: 25%;">

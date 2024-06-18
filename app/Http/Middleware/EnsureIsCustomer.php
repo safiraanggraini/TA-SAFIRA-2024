@@ -34,8 +34,11 @@ class EnsureIsCustomer
 
         $userData = $response->json('data');
 
-        if (isset($userData['role']) && strtolower($userData['role']) !== 'customer') {
-            return redirect('/404');
+        if ($user_data) {
+            $user_data = json_decode($user_data);
+            if (strtolower($user_data->role) == 'admin') {
+                return redirect('/dashboard');
+            }
         }
 
         return $next($request);

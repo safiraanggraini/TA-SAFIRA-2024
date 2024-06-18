@@ -115,36 +115,35 @@
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const paketSelect = document.getElementById('paket_wisata');
-            const jumlahInput = document.getElementById('jumlah');
-            const totalAmount = document.getElementById('totalAmount');
+        document.addEventListener('DOMContentLoaded', function() { // Menambahkan event listener yang akan dieksekusi saat DOM selesai dimuat
+            const paketSelect = document.getElementById('paket_wisata'); // Mendapatkan elemen select dengan id 'paket_wisata'
+            const jumlahInput = document.getElementById('jumlah'); // Mendapatkan elemen input dengan id 'jumlah'
+            const totalAmount = document.getElementById('totalAmount'); // Mendapatkan elemen dengan id 'totalAmount' untuk menampilkan total harga
 
-            function calculateTotal() {
-                const selectedOption = paketSelect.options[paketSelect.selectedIndex];
-                const price = parseInt(selectedOption.getAttribute('data-price')) || 0;
-                const jumlah = parseInt(jumlahInput.value) || 0;
-                const total = price * jumlah;
-                totalAmount.textContent = 'Rp ' + total.toLocaleString('id-ID');
+            function calculateTotal() { // Mendefinisikan fungsi untuk menghitung total harga
+                const selectedOption = paketSelect.options[paketSelect.selectedIndex]; // Mendapatkan opsi yang dipilih dari elemen select
+                const price = parseInt(selectedOption.getAttribute('data-price')) || 0; // Mendapatkan atribut 'data-price' dari opsi yang dipilih, default 0 jika tidak ada
+                const jumlah = parseInt(jumlahInput.value) || 0; // Mendapatkan nilai dari input jumlah, default 0 jika kosong atau bukan angka
+                const total = price * jumlah; // Menghitung total harga dengan mengalikan harga per item dengan jumlah
+                totalAmount.textContent = 'Rp ' + total.toLocaleString('id-ID'); // Menampilkan total harga dalam format mata uang Indonesia
             }
 
-            paketSelect.addEventListener('change', calculateTotal);
-            jumlahInput.addEventListener('input', calculateTotal);
+            paketSelect.addEventListener('change', calculateTotal); // Menambahkan event listener untuk menghitung total saat opsi select berubah
+            jumlahInput.addEventListener('input', calculateTotal); // Menambahkan event listener untuk menghitung total saat nilai input berubah
         });
-        //buat function untuk blokir tanggal sebelum nya 
-        function getTodayDate() { 
-            const today = new Date();       //buat variabel untuk mengambil tanggal hari ini
-            const year = today.getFullYear();   //mengambil tahun dari variabel today
-            const month = String(today.getMonth() + 1).padStart(2, '0'); // Bulan dimulai dari 0
-            const day = String(today.getDate()).padStart(2, '0');       //mengambil hari dari variabel today
-            return `${year}-${month}-${day}`;       //membuat format menjadi tahun bulan hari
+
+        function getTodayDate() { // Mendefinisikan fungsi untuk mendapatkan tanggal hari ini
+            const today = new Date(); // Membuat objek Date untuk tanggal hari ini
+            const year = today.getFullYear(); // Mendapatkan tahun dari objek Date
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Mendapatkan bulan dari objek Date dan menambah 1 karena bulan dimulai dari 0, kemudian menambahkan '0' di depan jika perlu
+            const day = String(today.getDate()).padStart(2, '0'); // Mendapatkan hari dari objek Date dan menambahkan '0' di depan jika perlu
+            return `${year}-${month}-${day}`; // Mengembalikan tanggal dalam format 'yyyy-mm-dd'
         }
 
-        // Mengatur atribut min pada input tanggal
-        document.getElementById('check_in').setAttribute('min', getTodayDate());
-    </script>
-@endsection
+        document.getElementById('check_in').setAttribute('min', getTodayDate()); // Mengatur atribut 'min' pada elemen input dengan id 'check_in' agar tanggal yang dipilih tidak bisa sebelum hari ini
+</script>
 
+@endsection
 
 @push('css')
     <style>

@@ -215,7 +215,7 @@
         <div class="row d-flex">
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20 rounded"
+                    <a href="#outbond" class="block-20 rounded"
                         style="background-image: url('images/outbond.jpg');">
                     </a>
                     <div class="text mt-3 text-center">
@@ -228,7 +228,7 @@
             </div>
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20 rounded"
+                    <a href="#camping" class="block-20 rounded"
                         style="background-image: url('images/camp.jpg');">
                     </a>
                     <div class="text mt-3 text-center">
@@ -241,7 +241,7 @@
             </div>
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20 rounded"
+                    <a href="#susur-sungai" class="block-20 rounded"
                         style="background-image: url('images/susur sungai.jpg');">
                     </a>
                     <div class="text mt-3 text-center">
