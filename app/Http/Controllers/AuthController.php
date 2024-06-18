@@ -31,7 +31,7 @@ class AuthController extends Controller
     public function loginProcess(Request $request)
     {
         // Kirim request login ke backend
-        $response = Http::post($this->apiUrl . '/auth/login', [
+        $response = Http::post($this->apiUrl . 'auth/login', [
             'email' => $request->input('email'),
             'password' => $request->input('password'),
         ]);
@@ -67,7 +67,7 @@ class AuthController extends Controller
 
     public function registerProcess(Request $request)
     {
-        $response = Http::post($this->apiUrl . '/auth/signup', [
+        $response = Http::post($this->apiUrl . 'auth/signup', [
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => $request->input('password'),
