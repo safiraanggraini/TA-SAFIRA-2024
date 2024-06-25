@@ -30,7 +30,24 @@
                             <div class="widget-data">
                                 <div class="weight-700 font-24 text-dark">{{ $orderCount }}</div>
                                 <div class="font-14 text-secondary weight-500">
-                                    Pesanan
+                                    Pesanan Total
+                                </div>
+                            </div>
+                            <div class="widget-icon">
+                                <div class="icon" data-color="#00eccf">
+                                    <i class="icon-copy bi bi-journal-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
+                    <div class="card-box height-100-p widget-style3">
+                        <div class="d-flex flex-wrap">
+                            <div class="widget-data">
+                                <div class="weight-700 font-24 text-dark">1</div>
+                                <div class="font-14 text-secondary weight-500">
+                                    Pesanan Bulan ini
                                 </div>
                             </div>
                             <div class="widget-icon">
@@ -74,8 +91,52 @@
                             </div>
                         </div>
                     </div>
+                </div>        <div class="container">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Grafik Pesanan Perbulan</h5>
+        
+                                <!-- Pie Chart -->
+                                <canvas id="pieChart" style="max-height: 400px;"></canvas>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", () => {
+                                        new Chart(document.querySelector('#pieChart'), {
+                                            type: 'line',
+                                            data: {
+                                                labels: [
+                                                    'januari',
+                                                    'februari',
+                                                    'maret',
+                                                    'april',
+                                                    'mei',
+                                                    'juni',
+                                                    'juli',
+                                                    'agustus',
+                                                    'september',
+                                                    'oktober',
+                                                    'november',
+                                                    'desember',
+                                                ],
+                                                datasets: [{
+                                                    label: 'Pesanan Perbulan',
+                                                    data: [
+                                                       10, 5, 2, 15, 12, 8, 6, 5, 4, 6, 10, 12
+                                                    ],
+                                                    hoverOffset: 4
+                                                }]
+                                            }
+                                        });
+                                    });
+                                </script>
+                                <!-- End Pie CHart -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 @endsection
