@@ -8,6 +8,13 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                        style="padding: 0.75rem 15px !important; margin: 0.75rem 5px !important; border-radius: 5px !important;"><img src="{{ asset('images/notif.png') }}" style="max-width: 20px;" alt="Bell Icon"></a>
+                    <div class="dropdown-menu fade-down m-0 left-10">
+                        <a href="{{ route('profile.index') }}" class="dropdown-item">Pesanan anda sudah dikonfirmasi</a>
+                    </div>
+                </div>
                 <li class="nav-item {{ Request::is('/') || Request::is('/#') ? 'active' : '' }}"><a href="/#" class="nav-link">Beranda</a></li>
                 <li class="nav-item {{ Request::is('/#tentang') ? 'active' : '' }}"><a href="/#tentang" class="nav-link">Tentang Kami</a></li>
                 <li class="nav-item {{ Request::is('/#paket') ? 'active' : '' }}" ><a href="/#paket" class="nav-link">Paket Wisata</a></li>
@@ -26,6 +33,7 @@
                             <a href="/logout" class="dropdown-item">Logout</a>
                         </div>
                     </div>
+                   
                 @else
                     <li class="nav-item"><a href="/login" class="nav-link login btn btn-primary"
                             style="padding: 0.75rem 15px !important; margin: 0.75rem 5px !important;  border-radius: 5px !important;">Login</a></li>
